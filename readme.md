@@ -1,8 +1,22 @@
 # Azure Management Application
 
-### 参照
+### 参考
   - [クイックスタート](https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell)
   - [Azure PowerShellリファレンス](https://learn.microsoft.com/ja-jp/powershell/azure/?view=azps-9.3.0)
+
+# サービスプリンシパル
+
+上記ARMテンプレート発行のクイックスタートの手順の中で、GroupIDやRoleIDを指定する手順が示されているが、何の「グループ」なのか、がわからなかった。
+
+### 参考
+  - [もう多分怖くないサービスプリンシパル](https://tech-lab.sios.jp/archives/23371)
+
+### 理解
+- ARMに指定するグループには、AzureActiveDirectoryの「グループ」を指定する。
+- このグループには、発行するアプリケーションが使用するアプリケーションを登録する。
+- 登録されるアプリケーションには、Azureリソースを操作するための認証情報「サービスプリンシパル」が設定される。
+- アプリケーションの認証情報をADユーザ（人）に依存させないため、「アプリケーション」自体をグループに属させる。
+- アプリケーションのサービスプリンシパルを指定する。
 
 # PowerShell補足
 
